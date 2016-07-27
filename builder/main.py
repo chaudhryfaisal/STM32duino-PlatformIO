@@ -161,7 +161,7 @@ elif _platform == "darwin":
 elif _platform == "win32":
     uploadPlatform = "win"
  
-if env.subst("$UPLOAD_PROTOCOL") == "dfu":
+if env.subst("$UPLOAD_PROTOCOL") == "dfu" or env.subst("$UPLOAD_PROTOCOL") == "maple_dfu":
     uploadProtocol = "maple_upload"
     usbids = env.BoardConfig().get("upload.usbid", "")
     usbid = '%s:%s' % (usbids[0], usbids[1])
