@@ -107,6 +107,8 @@ env.Replace(
 
 if env.subst("$UPLOAD_PROTOCOL") == "dfu":
     env.Append(CCFLAGS=["-DSERIAL_USB", "-DDGENERIC_BOOTLOADER", "-DVECT_TAB_ADDR=0x8002000"])
+elif env.subst("$UPLOAD_PROTOCOL") == "maple_dfu": # added to support maple
+    env.Append(CCFLAGS=["-DSERIAL_USB", "-DVECT_TAB_ADDR=0x8005000"])
 else:
     env.Append(CCFLAGS=["-DVECT_TAB_ADDR=0x8000000"])
 
