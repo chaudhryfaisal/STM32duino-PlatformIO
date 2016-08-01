@@ -107,7 +107,9 @@ env.Replace(
 
 if env.subst("$UPLOAD_PROTOCOL") == "dfu":
     env.Append(CCFLAGS=["-DSERIAL_USB", "-DDGENERIC_BOOTLOADER", "-DVECT_TAB_ADDR=0x8002000"])
-elif env.subst("$UPLOAD_PROTOCOL") == "maple_dfu": # added to support maple
+# new upload protocol added to support maple compatible Olimexino STM32 board
+# address has been obtained from a working configuration of Arduino IDE
+elif env.subst("$UPLOAD_PROTOCOL") == "maple_dfu":
     env.Append(CCFLAGS=["-DSERIAL_USB", "-DVECT_TAB_ADDR=0x8005000"])
 else:
     env.Append(CCFLAGS=["-DVECT_TAB_ADDR=0x8000000"])
@@ -160,7 +162,8 @@ elif _platform == "darwin":
     uploadPlatform = "macosx"
 elif _platform == "win32":
     uploadPlatform = "win"
- 
+
+# maple_dfu uses the same code that dfu to keep things as simple as posible 
 if env.subst("$UPLOAD_PROTOCOL") == "dfu" or env.subst("$UPLOAD_PROTOCOL") == "maple_dfu":
     uploadProtocol = "maple_upload"
     usbids = env.BoardConfig().get("upload.usbid", "")

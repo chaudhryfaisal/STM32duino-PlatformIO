@@ -7,8 +7,7 @@
     "hwids": [["0x1EAF", "0x0004"]], 
     "ldscript": "ld/flash.ld", 
     "mcu": "stm32f103rb", 
-    "variant": "maple",
-    "vect": "VECT_TAB_ADDR=0x8005000"
+    "variant": "maple"
   }, 
   "frameworks": ["arduino"], 
   "name": "Olimexino STM32", 
@@ -20,10 +19,8 @@
     "require_upload_port": true, 
     "use_1200bps_touch": false, 
     "wait_for_upload_port": false,
-    "auto_reset": true,
-    "altID": 1,
     "usbid": ["1EAF", "0003"]
   }, 
-  "url": "http://www.stm32duino.com", 
+  "url": "https://www.olimex.com/Products/Duino/STM32/OLIMEXINO-STM32/", 
   "vendor": "Olimex"
 }
