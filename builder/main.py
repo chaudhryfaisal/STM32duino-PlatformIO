@@ -172,7 +172,7 @@ if env.subst("$UPLOAD_PROTOCOL") == "dfu" or env.subst("$UPLOAD_PROTOCOL") == "m
     uploadParams = usbid
 
 env.Replace(
-    UPLOADER=join(env.DevPlatform().get_package_dir("framework-stm32duino"), "tools", uploadPlatform, uploadProtocol), 
+    UPLOADER=join(env.PioPlatform().get_package_dir("framework-stm32duino") or "", "tools", uploadPlatform, uploadProtocol), 
     UPLOADERFLAGS=["$UPLOAD_PORT"],
     UPLOADERPARAMS=uploadParams,
     UPLOADCMD='$UPLOADER $UPLOADERFLAGS $UPLOADERPARAMS $PROJECT_DIR/$SOURCES'
