@@ -28,7 +28,7 @@ from os.path import isdir, isfile, join
 from SCons.Script import DefaultEnvironment
 
 env = DefaultEnvironment()
-platform = env.DevPlatform()
+platform = env.PioPlatform()
 
 if "stm32f103" in env.BoardConfig().get("build.mcu", ""):
     FRAMEWORK_DIR = join(platform.get_package_dir("framework-stm32duino"), "STM32F1")
@@ -66,7 +66,7 @@ if env.subst("$UPLOAD_PROTOCOL") == "dfu":
         ldScript = "bootloader.ld"
     env.Replace(LDSCRIPT_PATH=ldScript)
 
-env.VariantDirWrap(
+env.VariantDir(
     join("$BUILD_DIR", "FrameworkArduinoInc"),
     join(FRAMEWORK_DIR, "cores", env.BoardConfig().get("build.core"))
 )

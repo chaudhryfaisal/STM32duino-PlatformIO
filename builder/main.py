@@ -94,7 +94,7 @@ env.Replace(
         "-Wl,--unresolved-symbols=report-all",
         "-Wl,--warn-common",
         "-Wl,--warn-section-align",
-        "$BUILD_DIR/FrameworkArduinoVariant/wirish/syscalls.o"
+		join("$BUILD_DIR", "FrameworkArduinoVariant","wirish","syscalls.o")
     ],
 
     LIBS=["c", "gcc", "m"],
